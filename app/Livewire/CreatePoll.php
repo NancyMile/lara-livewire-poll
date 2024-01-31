@@ -55,5 +55,7 @@ class CreatePoll extends Component
         //         'name' => $optionName
         //     ]);
         // }
+
+        $this->dispatch('pollCreated');
     }
 }
