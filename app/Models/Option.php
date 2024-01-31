@@ -11,6 +11,8 @@ class Option extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     publiC function poll(): BelongsTo
     {
         return $this->belongsTo(Poll::class);
