@@ -3,6 +3,10 @@
         <label">Poll Title</label>
         <input type="text" wire:model.live="title">
 
+        @error("title")
+            <div class="text-red-500">{{ $message }}</div>
+        @enderror
+
         <div class="mb-4 mt-4">
             <button class="btn" wire:click.prevent="addOption">Add Option</button>
         </div>
@@ -15,6 +19,9 @@
                         <input type="text" wire:model.live="options.{{ $key }}" />
                         <button class="btn" wire:click.prevent="removeOption({{ $key }})">Remove</button>
                     </div>
+                    @error("options.{$key}")
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
             @endforeach
         </div>
@@ -22,7 +29,5 @@
         <div class="mb-4 mt-4">
             <button class="btn" type="submit" >Create Poll</button>
         </div>
-
-
     </form>
 </div>
